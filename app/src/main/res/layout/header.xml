@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Full Name"
+        android:fontFamily="serif"
         android:textSize="15sp"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -33,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dummy@gmail.com"
+        android:fontFamily="serif"
         android:textSize="13sp"
         android:textColor="@color/white"
         />
@@ -42,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Blood Group"
+        android:fontFamily="serif"
         android:textSize="13sp"
         android:textColor="@color/white"
         />
@@ -51,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Type"
+        android:fontFamily="serif"
         android:textSize="13sp"
         android:textColor="@color/white"
         />
