@@ -229,6 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Already registred? Sign In"
+                    android:fontFamily="serif"
                     android:layout_marginTop="15dp"
                     android:textColor="@color/black"
                     android:gravity="center"
