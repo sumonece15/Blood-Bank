@@ -88,6 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Full Name"
+                        android:fontFamily="serif"
                         android:drawablePadding="10dp"
                         android:textColor="@color/black"
                         android:textSize="15sp"
@@ -114,6 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Id Number"
+                        android:fontFamily="serif"
                         android:inputType="number"
                         android:drawablePadding="10dp"
                         android:textColor="@color/black"
@@ -141,6 +143,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Phone Number"
+                        android:fontFamily="serif"
                         android:inputType="number"
                         android:drawablePadding="10dp"
                         android:textColor="@color/black"
@@ -164,6 +167,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:entries="@array/bloodGroups"
+                    android:theme="@style/SpinnerTheme"
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -180,6 +184,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Your Email"
+                        android:fontFamily="serif"
                         android:inputType="textEmailAddress"
                         android:drawablePadding="10dp"
                         android:textColor="@color/black"
@@ -205,6 +210,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Your Password"
+                        android:fontFamily="serif"
                         android:inputType="number"
                         android:drawablePadding="10dp"
                         android:textColor="@color/black"
