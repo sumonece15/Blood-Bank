@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         app:headerLayout="@layout/header"
         android:layout_gravity="start"
+        app:itemTextAppearance="@style/Style_TextView"
         app:menu="@menu/main_menu"
         app:itemIconTint="@drawable/navigation_selector"
         app:itemTextColor="@drawable/navigation_view_item_selected"
