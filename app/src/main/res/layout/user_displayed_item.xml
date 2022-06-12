@@ -105,6 +105,7 @@
             android:textColor="@color/white"
             android:textSize="11sp"
             android:text="Email"
+            android:fontFamily="serif"
             android:layout_gravity="center_vertical"
             android:textAllCaps="false"
             android:textStyle="bold"
