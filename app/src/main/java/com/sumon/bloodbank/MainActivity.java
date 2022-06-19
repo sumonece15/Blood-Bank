@@ -26,13 +26,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.sumon.bloodbank.Adapter.UserAdapter;
+import com.sumon.bloodbank.Model.Notification;
+import com.sumon.bloodbank.Model.NotificationDto;
 import com.sumon.bloodbank.Model.User;
+import com.sumon.bloodbank.network.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -136,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     nav_fullName.setText(name);
 
                     String email = snapshot.child("email").getValue().toString();
+                    String phone = snapshot.child("phoneNumber").getValue().toString();
                     nav_email.setText(email);
 
                     String bloodGroup = snapshot.child("bloodGroup").getValue().toString();
@@ -154,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         nav_profile_img.setImageResource(R.drawable.profile);
                     }
 
+                    FirebaseMessaging.getInstance().subscribeToTopic(phone);
 
                 }
 
@@ -253,6 +263,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent1 = new Intent(MainActivity.this, CategorySelectedActivity.class);
                 intent1.putExtra("group","A+");
                 startActivity(intent1);
+
+                sendNotification("01726455545");
+
                 break;
 
             case R.id.aNegative:
@@ -310,5 +323,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void sendNotification(String topic){
+
+        NotificationDto notificationDto = new NotificationDto(
+                new Notification("Blood Needed","Blood need for Bolod"),
+                topic
+        );
+
+        RetrofitClient.getApiInterface().sendNotification(notificationDto).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Toast.makeText(getApplicationContext(),"Notification Success", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
